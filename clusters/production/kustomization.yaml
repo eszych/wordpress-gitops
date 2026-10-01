@@ -4,5 +4,8 @@ kind: Kustomization
 resources:
   - ../../apps/namespace.yaml
 
-  - ../../apps/mariadb/base/helmrepository.yaml
-  - ../../apps/mariadb/base/helmrelease.yaml
+  - ../../apps/mariadb/base/secret.yaml
+  - ../../apps/mariadb/base/pvc.yaml
+  - ../../apps/mariadb/base/deployment.yaml
+  - ../../apps/mariadb/base/service.yaml
+  
