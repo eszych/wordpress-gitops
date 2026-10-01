@@ -25,5 +25,17 @@ az k8s-configuration flux show `
   --cluster-type connectedClusters `
   --name wordpress-prod
 
-kubectl get helmrepositories -A
+az k8s-configuration flux kustomization list `
+  --cluster-name aks-data-cls2 `
+  --resource-group rg-azl-cls2-aks-data `
+  --cluster-type connectedClusters `
+  --name wordpress-prod
+
+az k8s-configuration flux kustomization update `
+  --cluster-name aks-data-cls2 `
+  --resource-group rg-azl-cls2-aks-data `
+  --cluster-type connectedClusters `
+  --name wordpress-prod `
+  --kustomization-name production `
+  --sync-interval 60s
 
