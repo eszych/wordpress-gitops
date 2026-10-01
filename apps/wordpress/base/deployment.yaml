@@ -38,3 +38,12 @@ spec:
 
         - name: WORDPRESS_DB_PASSWORD
           value: WordpressPassword123!
+
+        volumeMounts:
+        - name: wordpress-data
+          mountPath: /var/www/html
+
+      volumes:
+      - name: wordpress-data
+        persistentVolumeClaim:
+          claimName: wordpress-pvc

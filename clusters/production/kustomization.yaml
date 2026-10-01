@@ -8,6 +8,7 @@ resources:
   - ../../apps/mariadb/base/pvc.yaml
   - ../../apps/mariadb/base/deployment.yaml
   - ../../apps/mariadb/base/service.yaml
-
+  
+  - ../../apps/wordpress/base/pvc.yaml
   - ../../apps/wordpress/base/deployment.yaml
   - ../../apps/wordpress/base/service.yaml
