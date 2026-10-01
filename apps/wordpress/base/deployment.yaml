@@ -20,7 +20,6 @@ spec:
     spec:
       containers:
       - name: wordpress
-
         image: wordpress:latest
 
         ports:
