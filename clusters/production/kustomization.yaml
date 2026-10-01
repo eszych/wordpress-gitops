@@ -5,10 +5,10 @@ resources:
   - ../../apps/namespace.yaml
 
   - ../../apps/mariadb/base/secret.yaml
-  - ../../apps/mariadb/base/pvc.yaml
-  - ../../apps/mariadb/base/deployment.yaml
   - ../../apps/mariadb/base/service.yaml
-  
+  - ../../apps/mariadb/base/statefulset.yaml
+
   - ../../apps/wordpress/base/pvc.yaml
-  - ../../apps/wordpress/base/deployment.yaml
   - ../../apps/wordpress/base/service.yaml
+  - ../../apps/wordpress/base/deployment.yaml
+  

@@ -1,11 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 
 metadata:
   name: mariadb
   namespace: wordpress
 
 spec:
+  serviceName: mariadb
+
   replicas: 1
 
   selector:
@@ -20,17 +22,28 @@ spec:
     spec:
       containers:
       - name: mariadb
+
         image: mariadb:11
+
         ports:
         - containerPort: 3306
+
         envFrom:
         - secretRef:
             name: mariadb-secret
+
         volumeMounts:
         - name: mariadb-data
           mountPath: /var/lib/mysql
 
-      volumes:
-      - name: mariadb-data
-        persistentVolumeClaim:
-          claimName: mariadb-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: mariadb-data
+
+    spec:
+      accessModes:
+      - ReadWriteOnce
+
+      resources:
+        requests:
+          storage: 40Gi
