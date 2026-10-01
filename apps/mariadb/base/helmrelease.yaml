@@ -9,7 +9,8 @@ spec:
 
   chart:
     spec:
-      chart: mariadb
+    - chart: mariadb
+    - Version: "23.*"
 
       sourceRef:
         kind: HelmRepository
