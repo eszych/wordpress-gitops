@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: mariadb
+  namespace: wordpress
+
+spec:
+  interval: 10m
+
+  chart:
+    spec:
+      chart: mariadb
+
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+
+  values:
+    auth:
+      rootPassword: RootPassword123!
+      database: wordpress
+      username: wordpress
+      password: WordpressPassword123!
+
+    primary:
+      persistence:
+        enabled: true
+        size: 40Gi
