@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
   - ../../apps/namespace.yaml
+
+  - ../../apps/mariadb/base/helmrepository.yaml
+  - ../../apps/mariadb/base/helmrelease.yaml

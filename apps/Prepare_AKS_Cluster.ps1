@@ -25,3 +25,5 @@ az k8s-configuration flux show `
   --cluster-type connectedClusters `
   --name wordpress-prod
 
+kubectl get helmrepositories -A
+
