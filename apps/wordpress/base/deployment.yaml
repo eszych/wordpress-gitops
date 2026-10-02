@@ -30,13 +30,22 @@ spec:
           value: mariadb
 
         - name: WORDPRESS_DB_NAME
-          value: wordpress
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: MARIADB_DATABASE
 
         - name: WORDPRESS_DB_USER
-          value: wordpress
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: MARIADB_USER
 
         - name: WORDPRESS_DB_PASSWORD
-          value: WordpressPassword123!
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: MARIADB_PASSWORD
 
         volumeMounts:
         - name: wordpress-data
